@@ -59,17 +59,30 @@ const Cart = ({productIdInCart,setProductIdInCart}) => {
     }  
     useEffect(() => {
         // if(productIdInCart.length>0){
+            // var amt=0;
+            
+            
+        // }
+        setTimeout(()=>{
+            setItemsInCart(itemsInCartproxy)
             var amt=0;
             for(var i=0;i<itemsInCart.length;i++){
                 amt = itemsInCart[i].QTY * itemsInCart[i].price;
 
             }
             setTotal(amt);
-        // }
-        setTimeout(()=>{
-            setItemsInCart(itemsInCartproxy)
             console.log("asfasfa",itemsInCart)
-        },1000 )
+        },300 )
+        setTimeout(()=>{
+            
+            var amt=0;
+            for(var i=0;i<itemsInCart.length;i++){
+                amt = amt + itemsInCart[i].QTY * itemsInCart[i].price;
+
+            }
+            setTotal(amt);
+            console.log("asfasfa",itemsInCart)
+        },500 )
         
     }, [])
     useEffect(()=>{
@@ -83,6 +96,7 @@ const Cart = ({productIdInCart,setProductIdInCart}) => {
     return (
         <MainComponent>
             <ProductListLeft >
+                {total}
                 {   itemsInCart ? 
                     itemsInCart.map(item => <ProductCartDetail itemObj={item} increaseItem={increaseItem} decreaseItem={decreaseItem}/>)
                 : <p>not found</p>
