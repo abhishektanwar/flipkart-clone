@@ -6,7 +6,7 @@ import CardPD from '../CardPd';
 
 import Product from '../Product/Product';
 
-const ProductList = ({ sortPrice, category, brand, size }) => {
+const ProductList = ({ sortPrice, category, brand, size ,cart, setCart }) => {
   const prods = products.map((p) => JSON.parse(JSON.stringify(p)));
   //   console.log(prods);
 
@@ -51,7 +51,7 @@ const ProductList = ({ sortPrice, category, brand, size }) => {
       </Container> */}
       <ProductView>
         {/* <Product p={items} /> */}
-        <CardPD items={items} /> 
+        <CardPD items={items} cart={cart} setCart={setCart} /> 
       </ProductView>
     </div>
   );

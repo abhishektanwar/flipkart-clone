@@ -4,6 +4,7 @@ import SearchIcon from "@material-ui/icons/Search"
 import { Button } from '@material-ui/core';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <HeaderContainer>
@@ -19,7 +20,7 @@ const Header = () => {
             <HeaderRight>
                 <Button id="login-btn">Login</Button>
                 <Button id="more-btn">More <KeyboardArrowDownIcon /> </Button>
-                <Button id="cart-btn"><ShoppingCartIcon />Cart</Button>
+                <Button id="cart-btn" ><Link to="/cart"><ShoppingCartIcon /></Link>Cart</Button>
             </HeaderRight>
         </HeaderContainer>
     )

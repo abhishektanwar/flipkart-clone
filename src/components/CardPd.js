@@ -8,6 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import styled from 'styled-components';
+import { blue } from '@material-ui/core/colors';
 
 const useStyles = makeStyles({
   root: {
@@ -17,10 +18,33 @@ const useStyles = makeStyles({
     height: 600,
     width: 400
   },
+  cartBtn:{
+    backgroundColor:blue,
+  }
 });
 
-export default function CardPD({items}) {
+export default function CardPD({items, cart,setCart}) {
   const classes = useStyles();
+  const cartBtnStyle={
+    backgroundColor:blue
+  }
+
+  const handleAddToCart = (id) => {
+    console.log(id)
+    var cartProxy = cart;
+    if(cartProxy.includes(id)){
+
+    }
+    else{
+      cartProxy.push(id)
+      setCart(cartProxy)
+    }
+    console.log(cartProxy);
+
+    console.log(cart);
+    console.log()
+    
+  }
 
   return (
     items.map((item) => {
@@ -44,6 +68,7 @@ export default function CardPD({items}) {
           <Typography>
             {item.size}
           </Typography>
+          <Button className={classes.cartBtn} onClick={()=>handleAddToCart(item.id)}>Add to Cart</Button>
         </CardContent>
       </CardActionArea>
       
